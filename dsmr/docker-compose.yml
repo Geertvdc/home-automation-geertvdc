@@ -1,4 +1,4 @@
-version: '1.0'
+version: '3.6'
 
 services:
   dsmrdb:
@@ -10,6 +10,7 @@ services:
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
+      
   dsmr:
     image: xirixiz/dsmr-reader-docker
     depends_on:

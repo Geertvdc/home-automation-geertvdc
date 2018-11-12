@@ -1,0 +1,31 @@
+version: '1.0'
+
+services:
+  dsmrdb:
+    image: postgres:11.1
+    volumes:
+      - /home/pi/dsmr/dsmrdb:/var/lib/postgresql/data
+      - /home/pi/dsmr/dsmrdb_backups:/dsmr/backups
+    environment:
+      - POSTGRES_USER=dsmrreader
+      - POSTGRES_PASSWORD=dsmrreader
+      - POSTGRES_DB=dsmrreader
+  dsmr:
+    image: xirixiz/dsmr-reader-docker
+    depends_on:
+      - dsmrdb
+    cap_add:
+      - NET_ADMIN    
+    links:
+      - dsmrdb
+    environment:
+      - DB_HOST=dsmrdb
+      - DSMR_USER=admin
+      - DSMR_EMAIL=root@localhost
+      - DSMR_PASSWORD=admin
+      - VIRTUAL_HOST=localhost
+    ports:
+      - 7777:80
+      - 7779:443
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0

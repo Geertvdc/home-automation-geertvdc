@@ -1,0 +1,1 @@
+docker run -d --name="home-assistant" -v /home/pi/home-assistant/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant

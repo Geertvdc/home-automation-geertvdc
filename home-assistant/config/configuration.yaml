@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 51.657059
-  longitude: 5.617230
+  latitude: 51.644653
+  longitude: 5.634515
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
@@ -64,6 +64,16 @@ tts:
 
 # Cloud
 cloud:
+
+device_tracker:
+  - platform: unifi
+    host: 192.168.1.13
+    username: unifireader
+    password: unifireader
+    verify_ssl: false
+    consider_home: 0:03
+    track_new_devices: yes
+    interval_seconds: 10
 
 group: !include groups.yaml
 automation: !include automations.yaml

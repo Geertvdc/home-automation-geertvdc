@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+homeassistant:
+    image: homeassistant/raspberrypi3-homeassistant:0.82.0
+    volumes:
+      - "/home/pi/home-assistant/config:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+    ports:
+      - 8123:8123

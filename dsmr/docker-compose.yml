@@ -2,23 +2,27 @@ version: '3.6'
 
 services:
   dsmrdb:
-    image: postgres:11.1
+    image: arm32v6/postgres:11-alpine
+    container_name: dsmrdb
     volumes:
-      - /home/pi/dsmr/dsmrdb:/var/lib/postgresql/data
-      - /home/pi/dsmr/dsmrdb_backups:/dsmr/backups
+      - ./dsmrdb:/var/lib/postgresql/data
+      - ./dsmrdb_backups:/dsmr/backups
+    restart: always
     environment:
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
-      
+
   dsmr:
-    image: geertvdc/dsmr-reader-docker-arm:1.26.1
+    image: geertvdc/dsmr-reader-docker-arm:1.26.1-alpine
+    container_name: dsmr
     depends_on:
       - dsmrdb
     cap_add:
       - NET_ADMIN    
     links:
       - dsmrdb
+    restart: always
     environment:
       - DB_HOST=dsmrdb
       - DSMR_USER=admin
@@ -30,3 +34,4 @@ services:
       - 7779:443
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+

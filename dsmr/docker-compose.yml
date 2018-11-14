@@ -12,7 +12,7 @@ services:
       - POSTGRES_DB=dsmrreader
       
   dsmr:
-    image: xirixiz/dsmr-reader-docker
+    image: geertvdc/dsmr-reader-docker-arm:1.26.1
     depends_on:
       - dsmrdb
     cap_add:

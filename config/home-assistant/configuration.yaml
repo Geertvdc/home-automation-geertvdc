@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
-introduction:
+#introduction:
 
 # Enables the frontend
 frontend:
@@ -51,9 +51,6 @@ logbook:
 
 # Track the sun
 sun:
-
-# Sensors
-sensor:
 
 # Text to speech
 tts:

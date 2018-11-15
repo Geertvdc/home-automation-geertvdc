@@ -58,8 +58,8 @@ notify:
 device_tracker:
   - platform: unifi
     host: 192.168.1.13
-    username: unifireader
-    password: unifireader
+    username: !secret unifi_username
+    password: !secret unifi_password
     verify_ssl: false
     consider_home: 0:03
     track_new_devices: no

@@ -32,14 +32,13 @@ config:
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  reporting: false
 
 # Discover some devices automatically
-discovery:
+#discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+#conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -48,22 +47,26 @@ history:
 logbook:
 
 # Enables a map showing the location of tracked devices
-map:
+#map:
 
 # Track the sun
 sun:
 
 # Sensors
 sensor:
-  # Weather prediction
-  - platform: yr
 
 # Text to speech
 tts:
   - platform: google
 
 # Cloud
-cloud:
+#cloud:
+
+# MQTT broker
+mqtt:
+  broker: mosquitto
+  discovery: true
+  discovery_prefix: homeassistant
 
 device_tracker:
   - platform: unifi

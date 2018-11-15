@@ -13,18 +13,11 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-# Show links to resources in log and frontend
-#introduction:
-
 # Enables the frontend
 frontend:
 
 # Enables configuration UI
 config:
-
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -34,36 +27,33 @@ config:
 updater:
   reporting: false
 
-# Discover some devices automatically
-#discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-#conversation:
-
 # Enables support for tracking state changes over time
 history:
 
 # View all events in a logbook
 logbook:
 
-# Enables a map showing the location of tracked devices
-#map:
-
 # Track the sun
 sun:
 
-# Text to speech
-tts:
-  - platform: google
-
-# Cloud
-#cloud:
+# Dummy switch
+input_boolean:
+  dummy:
+    name: Dummy
+    initial: off
+    icon: mdi:bell
 
 # MQTT broker
 mqtt:
   broker: mosquitto
   discovery: true
   discovery_prefix: homeassistant
+
+notify:
+  - name: pushover
+    platform: pushover
+    api_key: !secret pushover_apikey
+    user_key: !secret pushover_userkey
 
 device_tracker:
   - platform: unifi
@@ -72,8 +62,8 @@ device_tracker:
     password: unifireader
     verify_ssl: false
     consider_home: 0:03
-    track_new_devices: yes
-    interval_seconds: 10
+    track_new_devices: no
+    interval_seconds: 60
 
 group: !include groups.yaml
 automation: !include automations.yaml

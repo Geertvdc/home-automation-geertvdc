@@ -1,0 +1,53 @@
+- alias: Send notification from dummy button
+  trigger:
+    platform: state
+    entity_id: input_boolean.dummy
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Dummy notification!"
+        message: "Honey, I'm home!"
+        data:
+          url:
+          url_title:
+          sound: pianobar
+          priority: 0
+          device: 'Oneplus6Geert'
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.dummy
+
+- alias: Send notification when Geert is home
+  trigger:
+    platform: state
+    entity_id: device_tracker.oneplus_6_geertvdc
+    to: 'home'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Geert is thuis"
+        message: "Geert is thuis"
+        data:
+          url:
+          url_title:
+          sound: pianobar
+          priority: 0
+          device: 'Oneplus6Geert'
+
+- alias: Send notification when Geert is not home
+  trigger:
+    platform: state
+    entity_id: device_tracker.oneplus_6_geertvdc
+    to: 'not_home'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Geert is niet meer thuis"
+        message: "Geert is niet meer thuis"
+        data:
+          url:
+          url_title:
+          sound: pianobar
+          priority: 0
+          device: 'Oneplus6Geert'

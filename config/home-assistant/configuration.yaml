@@ -1,6 +1,6 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Home
+  name: Hellebaard34
   # Location required to calculate the time the sun rises and sets
   latitude: 51.644653
   longitude: 5.634515

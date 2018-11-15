@@ -1,4 +1,4 @@
-version: '3.6'
+version: '2.3'
 
 services:
   mosquitto:
@@ -7,16 +7,19 @@ services:
       - "1883:1883"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
-      - "/home/pi/mosquitto/config:/mosquitto/config"
-      - "/home/pi/mosquitto/log:/mosquitto/log"
-      - "/home/pi/mosquitto/data:/mosquitto/data"
+      - "/home/pi/config/mosquitto:/mosquitto/config"
+      - "/home/pi/data/mosquitto/log:/mosquitto/log"
+      - "/home/pi/data/mosquitto/data:/mosquitto/data"
     networks:
       - default
 
   homeassistant:
     image: homeassistant/raspberrypi3-homeassistant:0.82.0
+    depends_on:
+      mosquitto:
+        condition: service_started
     volumes:
-      - "/home/pi/home-assistant/config:/config"
+      - "/home/pi/config/home-assistant:/config"
       - "/etc/localtime:/etc/localtime:ro"
     ports:
       - 8123:8123

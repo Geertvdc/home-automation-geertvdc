@@ -49,11 +49,21 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 
+telegram_bot:
+  - platform: polling
+    api_key: #{telegram}#
+    allowed_chat_ids:
+      - 308462699
+    
+
 notify:
   - name: pushover
     platform: pushover
     api_key: !secret pushover_apikey
     user_key: !secret pushover_userkey
+  - name: telegram
+    platform: telegram
+    chat_id: 308462699
 
 device_tracker:
   - platform: unifi

@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Hellebaard34
   # Location required to calculate the time the sun rises and sets
-  latitude: 51.644653
-  longitude: 5.634515
+  latitude: #{latitude}#
+  longitude: #{longitude}#
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
@@ -62,7 +62,7 @@ device_tracker:
     password: !secret unifi_password
     verify_ssl: false
     consider_home: 0:03
-    track_new_devices: no
+    track_new_devices: false
     interval_seconds: 60
 
 group: !include groups.yaml

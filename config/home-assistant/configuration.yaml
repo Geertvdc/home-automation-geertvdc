@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Hellebaard34
   # Location required to calculate the time the sun rises and sets
-  latitude: #{latitude}#
-  longitude: #{longitude}#
+  latitude: !secret latitude
+  longitude: !secret longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
@@ -51,7 +51,7 @@ mqtt:
 
 telegram_bot:
   - platform: polling
-    api_key: #{telegram}#
+    api_key: !secret telegram
     allowed_chat_ids:
       - 308462699
     

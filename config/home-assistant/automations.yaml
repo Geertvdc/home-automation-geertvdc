@@ -28,30 +28,40 @@
     entity_id: device_tracker.androidgeert
     to: 'home'
   action:
-    - service: notify.pushover
+    - service: notify.telegram
       data:
-        title: "Geert is thuis"
-        message: "Geert is thuis"
-        data:
-          url:
-          url_title:
-          sound: pianobar
-          priority: 0
-          device: 'Oneplus6Geert'
+        title: 'Geert is home'
+        message: "*Geert* is home."
 
-- alias: Send notification when Geert is not home
+- alias: Send notification when Geert is away
   trigger:
     platform: state
     entity_id: device_tracker.androidgeert
     to: 'not_home'
   action:
-    - service: notify.pushover
+    - service: notify.telegram
       data:
-        title: "Geert is niet meer thuis"
-        message: "Geert is niet meer thuis"
-        data:
-          url:
-          url_title:
-          sound: pianobar
-          priority: 0
-          device: 'Oneplus6Geert'
+        title: 'Geert is away'
+        message: "*Geert* is away"
+
+- alias: Send notification when Patty is home
+  trigger:
+    platform: state
+    entity_id: device_tracker.androidpatty
+    to: 'home'
+  action:
+    - service: notify.telegram
+      data:
+        title: 'Patty is home'
+        message: "*Patty* is home."
+
+- alias: Send notification when Patty is away
+  trigger:
+    platform: state
+    entity_id: device_tracker.androidpatty
+    to: 'not_home'
+  action:
+    - service: notify.telegram
+      data:
+        title: 'Patty is away'
+        message: "*Patty* is away"

@@ -12,6 +12,7 @@ homeassistant:
   time_zone: Europe/Amsterdam
   # Customization file
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 # Enables the frontend
 frontend:
@@ -51,7 +52,6 @@ input_boolean:
 mqtt:
   broker: mosquitto
   discovery: true
-  discovery_prefix: homeassistant
 
 telegram_bot:
   - platform: broadcast

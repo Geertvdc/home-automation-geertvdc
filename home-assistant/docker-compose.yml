@@ -3,6 +3,7 @@ version: '2.3'
 services:
   mosquitto:
     image: arm32v6/eclipse-mosquitto:1.5.4
+    container_name: mosquitto
     ports:
       - "1883:1883"
     volumes:
@@ -15,6 +16,7 @@ services:
 
   homeassistant:
     image: homeassistant/raspberrypi3-homeassistant:0.82.0
+    container_name: home-assistant
     depends_on:
       mosquitto:
         condition: service_started

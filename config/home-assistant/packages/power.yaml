@@ -1,0 +1,46 @@
+group:
+  smartmeter:
+    #view: no
+    name: Power
+    entities:
+      - sensor.smartmeter_current
+      - sensor.smartmeter_daily
+
+sensor:
+- platform: mqtt
+  name: smartmeter_current_usage
+  state_topic: dsmr/current
+  value_template: '{{ value_json.electricity_currently_delivered }}'
+  unit_of_measurement: 'kW'
+- platform: mqtt
+  name: smartmeter_current_return
+  state_topic: dsmr/current
+  value_template: '{{ value_json.electricity_currently_returned }}'
+  unit_of_measurement: 'kW'
+- platform: mqtt
+  name: smartmeter_daily_usage
+  state_topic: dsmr/day-consumption
+  value_template: '{{ value_json.electricity_merged }}'
+  unit_of_measurement: 'kWh'
+- platform: mqtt
+  name: smartmeter_daily_return
+  state_topic: dsmr/day-consumption
+  value_template: '{{ value_json.electricity_returned_merged }}'
+  unit_of_measurement: 'kWh'
+- platform: template
+  sensors:
+    smartmeter_current_usage_w:
+      friendly_name: Current usage
+      value_template: "{{ (states('sensor.smartmeter_current_usage')|float*1000)|round(0) }}"
+      unit_of_measurement: 'W'
+    smartmeter_current_return_w:
+      friendly_name: Current supply
+      value_template: "{{ (states('sensor.smartmeter_current_return')|float*1000)|round(0) }}"
+      unit_of_measurement: 'W'
+    smartmeter_current:
+      friendly_name: Current net usage
+      value_template: "{{ (states('sensor.smartmeter_current_usage')|float*1000 - states('sensor.smartmeter_current_return')|float*1000)|round(0) }}"
+      unit_of_measurement: 'W'
+    smartmeter_daily:
+      friendly_name: Daily total
+      value_template: "{{ states('sensor.smartmeter_daily_usage') }} kWh / {{ states('sensor.smartmeter_daily_return') }} kWh"

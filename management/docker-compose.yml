@@ -4,6 +4,7 @@ services:
 
   traefik:
     image: arm32v6/traefik # The official Traefik docker image
+    container_name: traefik
     command: --api --docker # Enables the web UI and tells Traefik to listen to docker
     ports:
       - "80:80"     # The HTTP port
@@ -15,6 +16,7 @@ services:
 
   portainer:
     image: portainer/portainer
+    container_name: portainer
     volumes:
       - "/home/pi/data/portainer:/data"
       - "/var/run/docker.sock:/var/run/docker.sock"

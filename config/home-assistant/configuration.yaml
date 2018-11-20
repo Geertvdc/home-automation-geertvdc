@@ -58,25 +58,6 @@ telegram_bot:
     api_key: !secret telegram
     allowed_chat_ids:
       - -308462699
-    
-media_player:
-  - platform: kodi
-    host: 192.168.1.24
-
-media_player:
-  - platform: samsungtv
-    host: 192.168.1.27
-
-media_player:
-  - platform: denonavr
-    host: 192.168.1.28
-    name: denonavr
-    timeout: 120
-    show_all_sources: True
-
-cast:
-  media_player:
-  - host: 192.168.1.18
 
 notify:
   - name: pushover

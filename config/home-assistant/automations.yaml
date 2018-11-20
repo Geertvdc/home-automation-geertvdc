@@ -17,7 +17,7 @@
     - service: notify.telegram
       data:
         title: '*Send a message*'
-        message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+        #message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.dummy

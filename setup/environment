@@ -1,0 +1,6 @@
+HTTP_USERNAME=#{env.httpusername}#
+HTTP_PASSWORD=#{env.httppassword}#
+DOMAINNAME=#{env.domainname}#
+CLOUDFLARE_EMAIL=#{env.cloudflareemail}#
+CLOUDFLARE_API_KEY=#{env.cloudflareapikey}#
+USERDIR="/home/pi"

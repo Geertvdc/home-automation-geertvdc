@@ -1,8 +1,10 @@
 media_player:
+    name: kodi
   - platform: kodi
     host: 192.168.1.24
 
 media_player:
+    name: tv
   - platform: samsungtv
     host: 192.168.1.27
 

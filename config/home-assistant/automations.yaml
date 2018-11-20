@@ -16,8 +16,8 @@
     #       device: 'Oneplus6Geert'
     - service: notify.telegram
       data:
-        title: '*Send a message*'
-        #message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+        #title: '*Send a message*'
+        message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.dummy
@@ -30,7 +30,7 @@
   action:
     - service: notify.telegram
       data:
-        title: '*Geert* is home'
+        message: '*Geert* is home'
 
 - alias: Send notification when Geert is away
   trigger:
@@ -40,7 +40,7 @@
   action:
     - service: notify.telegram
       data:
-        title: '*Geert* is away'
+        message: '*Geert* is away'
 
 - alias: Send notification when Patty is home
   trigger:
@@ -50,7 +50,7 @@
   action:
     - service: notify.telegram
       data:
-        title: '*Patty* is home'
+        message: '*Patty* is home'
 
 - alias: Send notification when Patty is away
   trigger:
@@ -60,4 +60,4 @@
   action:
     - service: notify.telegram
       data:
-        title: '*Patty* is away'
+        message: '*Patty* is away'

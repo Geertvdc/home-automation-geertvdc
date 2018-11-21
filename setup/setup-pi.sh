@@ -10,6 +10,10 @@ sudo apt-get -y install python-pip
 
 sudo pip install docker-compose
 
+#setup docker-compose network
+
+docker network create traefik_proxy
+
 #install git 
 sudo apt-get update
 

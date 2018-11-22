@@ -3,7 +3,6 @@ version: '3.6'
 services:
 
   traefik:
-    hostname: traefik
     image: arm32v6/traefik
     container_name: traefik
     restart: always
@@ -14,7 +13,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
+      #- "8080:8080"
     environment:
       - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
       - CLOUDFLARE_API_KEY=${CLOUDFLARE_API_KEY}
@@ -29,7 +28,7 @@ services:
       - "traefik.frontend.headers.browserXSSFilter=true"
       - "traefik.frontend.headers.contentTypeNosniff=true"
       - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=${DOMAINNAME}"
+      - "traefik.frontend.headers.SSLHost=vdcruijsen.net"
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
@@ -38,6 +37,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${USERDIR}/config/traefik:/etc/traefik
       - ${USERDIR}/config/shared:/shared
+      
   portainer:
     image: portainer/portainer
     container_name: portainer
@@ -55,7 +55,7 @@ services:
       - "traefik.frontend.headers.browserXSSFilter=true"
       - "traefik.frontend.headers.contentTypeNosniff=true"
       - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=${DOMAINNAME}"
+      - "traefik.frontend.headers.SSLHost=vdcruijsen.net"
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
       - "traefik.frontend.headers.frameDeny=true"
@@ -64,6 +64,7 @@ services:
     networks:
       - default
       - traefik_proxy
+
 networks:
   traefik_proxy:
     external:

@@ -12,6 +12,8 @@ services:
       - POSTGRES_USER=dsmrreader
       - POSTGRES_PASSWORD=dsmrreader
       - POSTGRES_DB=dsmrreader
+    networks:
+      - default
 
   dsmr:
     image: geertvdc/dsmr-reader-docker-arm:1.26.1-alpine
@@ -34,4 +36,31 @@ services:
       - 7779:443
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=dsmr"
+      - "traefik.frontend.rule=Host:dsmr.${DOMAINNAME}"
+      - "traefik.port=80"
+      - "traefik.docker.network=traefik_proxy"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=vdcruijsen.net"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.auth.basic.usersFile=/shared/.htpasswd"
+      - "traefik.frontend.headers.STSPreload=true"
+      - "traefik.frontend.headers.frameDeny=true"
+    networks:
+      - default
+      - traefik_proxy
+    volumes:
+      - ${USERDIR}/config/shared:/shared
 
+networks:
+  traefik_proxy:
+    external:
+      name: traefik_proxy
+  default:
+    driver: bridge

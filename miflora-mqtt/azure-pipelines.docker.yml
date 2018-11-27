@@ -1,0 +1,24 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - miflora-mqtt/*
+
+variables:
+  imageName: 'geertvdc/miflora-mqtt'
+
+steps:
+- script: |
+    cd miflora-mqtt
+    docker build -f Dockerfile -t "$(imageName):$(Build.BuildId)" .
+    docker tag "$(imageName):$(Build.BuildId)" "$(imageName):latest"
+    docker push "$(imageName):$(Build.BuildId)"
+    docker push "$(imageName):latest"
+  displayName: 'Docker Build & Push'

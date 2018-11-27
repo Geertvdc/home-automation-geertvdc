@@ -35,6 +35,10 @@ updater:
 # Enables support for tracking state changes over time
 history:
   exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
     entities:
       - sensor.smartmeter_current_usage
       - sensor.smartmeter_current_return
@@ -44,6 +48,7 @@ history:
       - sensor.smartmeter_current_return_w
       - sensor.smartmeter_current 
       - sensor.smartmeter_daily
+      - group.smartmeter
       
 
 # View all events in a logbook

@@ -34,6 +34,17 @@ updater:
 
 # Enables support for tracking state changes over time
 history:
+  exclude:
+    entities:
+      - sensor.smartmeter_current_usage
+      - sensor.smartmeter_current_return
+      - sensor.smartmeter_daily_usage
+      - sensor.smartmeter_daily_return
+      - sensor.smartmeter_current_usage_w
+      - sensor.smartmeter_current_return_w
+      - sensor.smartmeter_current 
+      - sensor.smartmeter_daily
+      
 
 # View all events in a logbook
 logbook:

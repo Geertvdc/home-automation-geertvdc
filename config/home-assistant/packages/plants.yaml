@@ -1,0 +1,96 @@
+homeassistant:
+  customize:
+    plant.plant_living_tv_1:
+      friendly_name: 'Plant TV rechts'
+    sensor.plant_living_tv_1_battery:
+      friendly_name: 'Plant TV rechts batterij'
+      icon: mdi:battery
+
+sensor:
+  # Plant sensor TV rechts
+  - platform: mqtt
+    name: plant_living_tv_1_moisture
+    state_topic: miflora/sensor/plant_living_tv_1/state
+    value_template: '{{ value_json.moisture }}'
+    unit_of_measurement: '%'
+  - platform: mqtt
+    name: plant_living_tv_1_conductivity
+    state_topic: miflora/sensor/plant_living_tv_1/state
+    value_template: '{{ value_json.conductivity }}'
+    unit_of_measurement: 'μs / cm'
+  - platform: mqtt
+    name: plant_living_tv_1_temperature
+    state_topic: miflora/sensor/plant_living_tv_1/state
+    value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: '° C'
+  - platform: mqtt
+    name: plant_living_tv_1_light
+    state_topic: miflora/sensor/plant_living_tv_1/state
+    value_template: '{{ value_json.light }}'
+    unit_of_measurement: 'Lux'
+  - platform: mqtt
+    name: plant_living_tv_1_battery
+    state_topic: miflora/sensor/plant_living_tv_1/state
+    value_template: '{{ value_json.battery }}'
+    unit_of_measurement: '%'
+
+plant:
+  plant_living_tv_1:
+    sensors:
+      moisture: sensor.plant_living_tv_1_moisture
+      temperature: sensor.plant_living_tv_1_temperature
+      conductivity: sensor.plant_living_tv_1_conductivity
+      brightness: sensor.plant_living_tv_1_light
+      battery: sensor.plant_living_tv_1_battery
+    min_moisture: 20
+    min_battery: 20
+
+# automation:
+# - alias: Plant has a problem
+#   trigger:
+#     - platform: time
+#       at: '10: 00: 00 '
+#   condition:
+#     - condition: template
+#       value_template:>
+#         {% macro plant_problem ()%}
+#           {% for state in states.plant if (
+#               state.attributes ["problem"]! = "none" 
+#             )
+#             -%}
+#             {{state.name}}: {{state.attributes ["problem"]}}
+#           {% - endfor%}
+#         {% endmacro%}
+#         {{plant_problem () | trim! = ""}}
+#   action:
+#     - service: notify.pushover
+#       data_template:
+#         title: 'Plant heeft aandacht nodig'
+#         data:
+#           sound: bugle
+#           priority: 1
+#         message:>
+#           {% macro plant_problem ()%}
+#           {% for state in states.plant if (
+#               state.attributes ["problem"]! = "none" 
+#             )
+#             -%}
+#             {{state.name}}: {{state.attributes ["problem"]}} {{- '\ n' -}}
+#           {% - endfor%}
+#           {% endmacro%}
+#           Er zijn planten die aandacht nodig hebben:
+#           {{plant_problem ()}}
+#     - service: notify.email
+#       data_template:
+#         title: 'Plant heeft aandacht nodig'
+#         message:>
+#           {% macro plant_problem ()%}
+#           {% for state in states.plant if (
+#               state.attributes ["problem"]! = "none" 
+#             )
+#             -%}
+#             {{state.name}}: {{state.attributes ["problem"]}} {{- '\ n' -}}
+#           {% - endfor%}
+#           {% endmacro%}
+#           Er zijn planten die aandacht nodig hebben: {{- '\ n' -}}
+#           {{plant_problem ()}}

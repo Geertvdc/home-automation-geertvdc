@@ -7,7 +7,7 @@ homeassistant:
       icon: mdi:battery
 
 sensor:
-  # Plant sensor TV rechts
+  # Plant sensor TV rechts (Spathiphyllum 'Zero Cupido')
   - platform: mqtt
     name: plant_living_tv_1_moisture
     state_topic: miflora/sensor/plant_living_tv_1/state
@@ -42,55 +42,40 @@ plant:
       conductivity: sensor.plant_living_tv_1_conductivity
       brightness: sensor.plant_living_tv_1_light
       battery: sensor.plant_living_tv_1_battery
-    min_moisture: 20
-    min_battery: 20
+    min_moisture: 15
+    max_moisture: 65
+    min_battery: 15
 
-# automation:
-# - alias: Plant has a problem
-#   trigger:
-#     - platform: time
-#       at: '10: 00: 00 '
-#   condition:
-#     - condition: template
-#       value_template:>
-#         {% macro plant_problem ()%}
-#           {% for state in states.plant if (
-#               state.attributes ["problem"]! = "none" 
-#             )
-#             -%}
-#             {{state.name}}: {{state.attributes ["problem"]}}
-#           {% - endfor%}
-#         {% endmacro%}
-#         {{plant_problem () | trim! = ""}}
-#   action:
-#     - service: notify.pushover
-#       data_template:
-#         title: 'Plant heeft aandacht nodig'
-#         data:
-#           sound: bugle
-#           priority: 1
-#         message:>
-#           {% macro plant_problem ()%}
-#           {% for state in states.plant if (
-#               state.attributes ["problem"]! = "none" 
-#             )
-#             -%}
-#             {{state.name}}: {{state.attributes ["problem"]}} {{- '\ n' -}}
-#           {% - endfor%}
-#           {% endmacro%}
-#           Er zijn planten die aandacht nodig hebben:
-#           {{plant_problem ()}}
-#     - service: notify.email
-#       data_template:
-#         title: 'Plant heeft aandacht nodig'
-#         message:>
-#           {% macro plant_problem ()%}
-#           {% for state in states.plant if (
-#               state.attributes ["problem"]! = "none" 
-#             )
-#             -%}
-#             {{state.name}}: {{state.attributes ["problem"]}} {{- '\ n' -}}
-#           {% - endfor%}
-#           {% endmacro%}
-#           Er zijn planten die aandacht nodig hebben: {{- '\ n' -}}
-#           {{plant_problem ()}}
+automation:
+- alias: Plant has a problem
+  trigger:
+    platform: state
+    entity_id: device_tracker.androidgeert
+    entity_id: device_tracker.androidpatty
+    to: 'home'
+  condition:
+    - condition: template
+      value_template: >
+        {% macro plant_problem() %}
+          {% for state in states.plant if (
+              state.attributes["problem"] != "none" 
+            )
+            -%}
+            {{ state.name }}: {{ state.attributes["problem"] }}
+          {%- endfor %}
+        {% endmacro %}
+        {{ plant_problem() | trim != ""}}
+  action:
+    - service: notify.telegram
+      data_template:
+        message: >
+          {% macro plant_problem() %}
+          {% for state in states.plant if (
+              state.attributes["problem"] != "none" 
+            )
+            -%}
+            {{ state.name }}: {{ state.attributes["problem"] }}{{- '\n' -}}
+          {%- endfor %}
+          {% endmacro %}
+          Plants need attention:
+          {{ plant_problem() }}

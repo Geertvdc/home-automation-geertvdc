@@ -44,3 +44,6 @@ sensor:
     smartmeter_daily:
       friendly_name: Daily total
       value_template: "{{ states('sensor.smartmeter_daily_usage') }} kWh / {{ states('sensor.smartmeter_daily_return') }} kWh"
+    smartmeter_daily_total:
+      friendly_name: Daily net total
+      value_template: "{{ (states('sensor.smartmeter_daily_usage')|float - states('sensor.smartmeter_daily_return')|float)|round(1) }} kWh"

@@ -5,7 +5,7 @@ resources:
 title: Hellebaard 34
 views:
   - title: Floor plan
-    icon: mdi:wrench
+    icon: mdi:floor-plan
     cards:   
       - id: 0
         type: vertical-stack
@@ -80,24 +80,16 @@ views:
       - id: 1
         type: vertical-stack
         title: tmp
-        # cards:                
-        #   - type: picture-elements
-        #     image: /local/images/ground-floor.png
-        #     #title: Begane grond
-        #     elements:
-        #     - type: icon
-        #       icon: mdi:flower
-        #       tap_action: navigate
-        #       navigation_path: /lovelace/0
-        #       style: {color: '#00aa00', left: 66%, top: 56%}
-        #     - type: icon
-        #       icon: mdi:flower
-        #       tap_action: navigate
-        #       navigation_path: /lovelace/0
-        #       style: {color: '#00aa00', left: 66%, top: 61%}
-        #     - type: state-label
-        #       entity: sensor.plant_living_tv_1_moisture
-        #       style: {color: '#00aa00', left: 10%, top: 10%}
-        #     - type: state-label
-        #       entity: sensor.plant_living_tv_1_moisture
-        #       style: {color: '#FF0000', left: 20%, top: 10%}
+  - title: devices
+    icon: mdi:monitor-cellphone-star
+    cards:
+      - id: 2
+        type: vertical-stack
+        title: tmp
+  - title: Settings
+    icon: mdi:settings
+    cards:
+      - id: 3
+        type: vertical-stack
+        title: tmp
+        

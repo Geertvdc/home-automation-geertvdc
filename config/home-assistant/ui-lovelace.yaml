@@ -10,7 +10,7 @@ views:
       - id: 0
         type: vertical-stack
         cards: 
-          - type: custom:plan-coordinates                    
+          #- type: custom:plan-coordinates                    
           - type: picture-elements
             image: /local/images/ground-floor.png
             #title: Begane grond
@@ -38,16 +38,29 @@ views:
               style: {color: '#aaaaaa', left: 44%, top: 72%, font-size: 20px}
             #power
             - type: icon
-              icon: mdi:power-plug
+              icon: mdi:flash
               tap_action: navigate
               navigation_path: /lovelace/0
-              style: {color: '#aa0000', left: 44%, top: 18.5%}
+              style: {color: '#e08338', left: 44%, top: 18.5%}
             - type: state-label
               entity: sensor.smartmeter_current_usage_w
-              style: {color: '#ffffff', left: 52%, top: 17%}
+              style: {color: '#ffffff', left: 50%, top: 17%, width: 50px}
             - type: state-label
               entity: sensor.smartmeter_daily_total
-              style: {color: '#ffffff', left: 52%, top: 20%}
+              style: {color: '#ffffff', left: 50%, top: 20%, width: 50px}
+            #solar
+            - type: icon
+              icon: mdi:solar-power
+              tap_action: navigate
+              navigation_path: /lovelace/0
+              style: {color: '#00aa00', left: 65%, top: 18.5%}
+            - type: state-label
+              entity: sensor.smartmeter_current_return_w
+              style: {color: '#ffffff', left: 72%, top: 17%, width: 50px}
+            - type: state-label
+              entity: sensor.smartmeter_daily_return_total
+              style: {color: '#ffffff', left: 72%, top: 20%, width: 50px}
+
 
       # - id: 1
       #   type: vertical-stack 

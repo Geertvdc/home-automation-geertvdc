@@ -7,12 +7,12 @@ views:
   - title: Floor plan
     icon: mdi:floor-plan
     cards:   
-      - id: 0
+      - id: 0.1
         type: vertical-stack
         cards: 
-          #- type: custom:plan-coordinates                    
+          - type: custom:plan-coordinates                    
           - type: picture-elements
-            image: /local/images/ground-floor.png
+            image: /local/images/ground-floor.png?v=1
             #title: Begane grond
             elements:
             #flowers
@@ -60,36 +60,39 @@ views:
             - type: state-label
               entity: sensor.smartmeter_daily_return_total
               style: {color: '#ffffff', left: 72%, top: 20%, width: 50px}
-
-
-      # - id: 1
-      #   type: vertical-stack 
-      #   cards: 
-      #     #- type: custom:plan-coordinates   
-      #     - type: picture-elements
-      #       image: /local/images/ground-floor.png  
-      #       elements:  
-      #       - type: icon
-      #         icon: mdi:flower
-      #         tap_action: navigate
-      #         navigation_path: /lovelace/0
-      #         style: {color: '#00aa00', left: 66%, top: 61%}   
+      - id: 0.2
+        type: vertical-stack 
+        cards: 
+          - type: picture-elements
+            image: /local/images/first-floor.png?v=1  
+            elements:  
+            - type: icon
+              icon: mdi:flower
+              tap_action: navigate
+              navigation_path: /lovelace/0
+              style: {color: '#00aa00', left: 66%, top: 61%}  
+  - title: power
+    icon: mdi:flash
+    cards:
+      - id: 1
+        type: vertical-stack
+        title: tmp 
   - title: plants
     icon: mdi:flower
     cards:
-      - id: 1
+      - id: 2
         type: vertical-stack
         title: tmp
   - title: devices
     icon: mdi:monitor-cellphone-star
     cards:
-      - id: 2
+      - id: 3
         type: vertical-stack
         title: tmp
   - title: Settings
     icon: mdi:settings
     cards:
-      - id: 3
+      - id: 4
         type: vertical-stack
         title: tmp
         

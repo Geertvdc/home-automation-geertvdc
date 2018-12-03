@@ -4,20 +4,9 @@
     entity_id: input_boolean.dummy
     to: 'on'
   action:
-    # - service: notify.pushover
-    #   data:
-    #     title: "Dummy notification!"
-    #     message: "Honey, I'm home!"
-    #     data:
-    #       url:
-    #       url_title:
-    #       sound: pianobar
-    #       priority: 0
-    #       device: 'Oneplus6Geert'
-    - service: notify.telegram
+    - service: notify.telegram_dev
       data:
-        #title: '*Send a message*'
-        message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+        message: "example that _sends_ a *formatted* message with a custom inline keyboard."
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.dummy
@@ -28,7 +17,7 @@
     entity_id: device_tracker.androidgeert
     to: 'home'
   action:
-    - service: notify.telegram
+    - service: notify.telegram_dev
       data:
         message: '*Geert* is home'
 
@@ -38,7 +27,7 @@
     entity_id: device_tracker.androidgeert
     to: 'not_home'
   action:
-    - service: notify.telegram
+    - service: notify.telegram_dev
       data:
         message: '*Geert* is away'
 
@@ -48,7 +37,7 @@
     entity_id: device_tracker.androidpatty
     to: 'home'
   action:
-    - service: notify.telegram
+    - service: notify.telegram_dev
       data:
         message: '*Patty* is home'
 
@@ -58,6 +47,6 @@
     entity_id: device_tracker.androidpatty
     to: 'not_home'
   action:
-    - service: notify.telegram
+    - service: notify.telegram_dev
       data:
         message: '*Patty* is away'

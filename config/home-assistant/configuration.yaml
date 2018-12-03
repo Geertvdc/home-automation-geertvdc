@@ -45,6 +45,7 @@ history:
       - sensor.smartmeter_current_return
       - sensor.smartmeter_daily_usage
       - sensor.smartmeter_daily_return
+      - sensor.smartmeter_daily_total
       - sensor.smartmeter_current_usage_w
       - sensor.smartmeter_current_return_w
       - sensor.smartmeter_current 
@@ -75,6 +76,7 @@ telegram_bot:
     api_key: !secret telegram
     allowed_chat_ids:
       - -308462699
+      - -166944892
 
 notify:
   - name: pushover
@@ -84,6 +86,9 @@ notify:
   - name: telegram
     platform: telegram
     chat_id: -308462699
+  - name: telegram_dev
+    platform: telegram
+    chat_id: -166944892
 
 device_tracker:
   - platform: unifi

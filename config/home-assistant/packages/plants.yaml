@@ -5,6 +5,11 @@ homeassistant:
     sensor.plant_living_tv_1_battery:
       friendly_name: 'Plant TV rechts batterij'
       icon: mdi:battery
+    plant.plant_living_tv_2:
+      friendly_name: 'Plant TV links'
+    sensor.plant_living_tv_2_battery:
+      friendly_name: 'Plant TV links batterij'
+      icon: mdi:battery
 
 sensor:
   # Plant sensor TV rechts (Spathiphyllum 'Zero Cupido')
@@ -33,6 +38,34 @@ sensor:
     state_topic: miflora/sensor/plant_living_tv_1/state
     value_template: '{{ value_json.battery }}'
     unit_of_measurement: '%'
+    
+  # Plant sensor TV links (Spathiphyllum 'Zero Cupido')
+  - platform: mqtt
+    name: plant_living_tv_2_moisture
+    state_topic: miflora/sensor/plant_living_tv_2/state
+    value_template: '{{ value_json.moisture }}'
+    unit_of_measurement: '%'
+  - platform: mqtt
+    name: plant_living_tv_2_conductivity
+    state_topic: miflora/sensor/plant_living_tv_2/state
+    value_template: '{{ value_json.conductivity }}'
+    unit_of_measurement: 'μs / cm'
+  - platform: mqtt
+    name: plant_living_tv_2_temperature
+    state_topic: miflora/sensor/plant_living_tv_2/state
+    value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: '° C'
+  - platform: mqtt
+    name: plant_living_tv_2_light
+    state_topic: miflora/sensor/plant_living_tv_2/state
+    value_template: '{{ value_json.light }}'
+    unit_of_measurement: 'Lux'
+  - platform: mqtt
+    name: plant_living_tv_2_battery
+    state_topic: miflora/sensor/plant_living_tv_2/state
+    value_template: '{{ value_json.battery }}'
+    unit_of_measurement: '%'
+
 
 plant:
   plant_living_tv_1:

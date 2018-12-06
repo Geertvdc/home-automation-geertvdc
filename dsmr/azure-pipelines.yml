@@ -1,0 +1,28 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - dsmr
+      - config/shared
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.stagingDirectory)'
+  inputs:
+    Contents: |
+     config/shared/**
+     dsmr/**
+    TargetFolder: '$(build.stagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: dsmr'
+  inputs:
+    PathtoPublish: '$(build.stagingDirectory)'
+    ArtifactName: dsmr

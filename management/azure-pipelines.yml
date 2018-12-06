@@ -1,0 +1,30 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+trigger:
+  branches:
+    include:
+      - master 
+  paths:
+    include: 
+      - management
+      - config/traefik
+      - config/shared
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.stagingDirectory)'
+  inputs:
+    Contents: |
+     config/traefik/**
+     config/shared/**
+     management/**
+    TargetFolder: '$(build.stagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: management'
+  inputs:
+    PathtoPublish: '$(build.stagingDirectory)'
+    ArtifactName: management

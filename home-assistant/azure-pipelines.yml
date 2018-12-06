@@ -1,0 +1,31 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - home-assistant
+      - config/home-assistant
+      - config/mosquitto
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.stagingDirectory)'
+  inputs:
+    Contents: |
+     config/home-assistant/**
+     config/mosquitto/**
+     config/shared/**
+     home-assistant/**
+    TargetFolder: '$(build.stagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: home-assistant'
+  inputs:
+    PathtoPublish: '$(build.stagingDirectory)'
+    ArtifactName: home-assistant

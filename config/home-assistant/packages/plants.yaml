@@ -10,6 +10,12 @@ homeassistant:
     sensor.plant_living_tv_2_battery:
       friendly_name: 'Plant TV links batterij'
       icon: mdi:battery
+    plant.plant_living_diningtable:
+      friendly_name: 'Plant eettafel'
+    sensor.plant_living_diningtable_battery:
+      friendly_name: 'Plant eettafel batterij'
+      icon: mdi:battery
+
 
 sensor:
   # Plant sensor TV rechts (Spathiphyllum 'Zero Cupido')
@@ -66,6 +72,32 @@ sensor:
     value_template: '{{ value_json.battery }}'
     unit_of_measurement: '%'
 
+  # Plant sensor Eettafel (Hyacinthus Orientalis)
+  - platform: mqtt
+    name: plant_living_diningtable_moisture
+    state_topic: miflora/sensor/plant_living_diningtable/state
+    value_template: '{{ value_json.moisture }}'
+    unit_of_measurement: '%'
+  - platform: mqtt
+    name: plant_living_diningtable_conductivity
+    state_topic: miflora/sensor/plant_living_diningtable/state
+    value_template: '{{ value_json.conductivity }}'
+    unit_of_measurement: 'μs / cm'
+  - platform: mqtt
+    name: plant_living_diningtable_temperature
+    state_topic: miflora/sensor/plant_living_diningtable/state
+    value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: '° C'
+  - platform: mqtt
+    name: plant_living_diningtable_light
+    state_topic: miflora/sensor/plant_living_diningtable/state
+    value_template: '{{ value_json.light }}'
+    unit_of_measurement: 'Lux'
+  - platform: mqtt
+    name: plant_living_diningtable_battery
+    state_topic: miflora/sensor/plant_living_diningtable/state
+    value_template: '{{ value_json.battery }}'
+    unit_of_measurement: '%'
 
 plant:
   plant_living_tv_1:
@@ -90,6 +122,18 @@ plant:
     max_moisture: 65
     min_battery: 20
 
+  plant_living_diningtable:
+    sensors:
+      moisture: sensor.plant_living_diningtable_moisture
+      temperature: sensor.plant_living_diningtable_temperature
+      conductivity: sensor.plant_living_diningtable_conductivity
+      brightness: sensor.plant_living_diningtable_light
+      battery: sensor.plant_living_diningtable_battery
+    min_moisture: 20
+    max_moisture: 60
+    min_battery: 20
+    
+automation:
 - alias: Plant has problem
   trigger:
     - platform: state
@@ -97,6 +141,9 @@ plant:
       to: 'problem'
     - platform: state
       entity_id: plant.plant_living_tv_2
+      to: 'problem'
+    - platform: state
+      entity_id: plant.plant_living_diningtable
       to: 'problem'
   condition:
     - condition: template

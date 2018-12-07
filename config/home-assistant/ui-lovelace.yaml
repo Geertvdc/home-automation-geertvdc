@@ -15,12 +15,8 @@ views:
             image: /local/images/ground-floor.png?v=1
             #title: Begane grond
             elements:
-            #flowers
-            - type: icon
-              icon: mdi:flower
-              tap_action: navigate
-              navigation_path: /lovelace/0
-              style: {color: '#00aa00', left: 66%, top: 56%}
+            
+            #flower 1
             - type: icon
               icon: mdi:flower
               tap_action: navigate
@@ -28,10 +24,27 @@ views:
               style: {color: '#00aa00', left: 66%, top: 61%}
             - type: state-label
               entity: sensor.plant_living_tv_1_moisture
-              style: {color: '#ffffff', left: 60%, top: 56%}
-            - type: state-label
-              entity: sensor.plant_living_tv_1_moisture
               style: {color: '#ffffff', left: 60%, top: 61%}
+
+            #flower2
+            - type: icon
+              icon: mdi:flower
+              tap_action: navigate
+              navigation_path: /lovelace/0
+              style: {color: '#00aa00', left: 66%, top: 56%}
+            - type: state-label
+              entity: sensor.plant_living_tv_2_moisture
+              style: {color: '#ffffff', left: 60%, top: 56%}
+
+            #flower 3
+            - type: icon
+              icon: mdi:flower
+              tap_action: navigate
+              navigation_path: /lovelace/0
+              style: {color: '#00aa00', left: 30%, top: 70%}
+            - type: state-label
+              entity: sensor.plant_living_diningtable_moisture
+              style: {color: '#ffffff', left: 24%, top: 70%}
             #temperature
             - type: state-label
               entity: sensor.plant_living_tv_1_temperature
@@ -95,4 +108,3 @@ views:
       - id: 4
         type: vertical-stack
         title: tmp
-        

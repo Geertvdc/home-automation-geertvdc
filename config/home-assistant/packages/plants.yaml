@@ -107,7 +107,7 @@ plant:
       conductivity: sensor.plant_living_tv_1_conductivity
       brightness: sensor.plant_living_tv_1_light
       battery: sensor.plant_living_tv_1_battery
-    min_moisture: 20
+    min_moisture: 30
     max_moisture: 65
     min_battery: 20
     
@@ -118,7 +118,7 @@ plant:
       conductivity: sensor.plant_living_tv_2_conductivity
       brightness: sensor.plant_living_tv_2_light
       battery: sensor.plant_living_tv_2_battery
-    min_moisture: 20
+    min_moisture: 30
     max_moisture: 65
     min_battery: 20
 
@@ -129,7 +129,7 @@ plant:
   #     conductivity: sensor.plant_living_diningtable_conductivity
   #     brightness: sensor.plant_living_diningtable_light
   #     battery: sensor.plant_living_diningtable_battery
-  #   min_moisture: 20
+  #   min_moisture: 30
   #   max_moisture: 60
   #   min_battery: 20
     

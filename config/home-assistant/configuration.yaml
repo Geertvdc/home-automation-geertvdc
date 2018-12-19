@@ -70,6 +70,12 @@ input_boolean:
 mqtt:
   broker: mosquitto
   discovery: true
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
 
 telegram_bot:
   - platform: broadcast

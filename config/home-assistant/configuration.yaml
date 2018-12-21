@@ -104,7 +104,7 @@ device_tracker:
     verify_ssl: false
     consider_home: 0:03
     track_new_devices: false
-    interval_seconds: 60
+    interval_seconds: 10
 
 group: !include groups.yaml
 automation: !include automations.yaml

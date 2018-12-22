@@ -4,6 +4,9 @@
 curl -ssl https://get.docker.com | sh
 
 sudo usermod -a -G docker $USER
+sudo gpasswd -a $USER docker
+
+newgrp docker
 
 #install docker-compose
 sudo apt-get -y install python-pip
@@ -18,3 +21,9 @@ docker network create traefik_proxy
 sudo apt-get update
 
 sudo apt-get install git
+
+mkdir azure-devops-agent
+
+curl https://vstsagentpackage.azureedge.net/agent/2.144.0/vsts-agent-linux-arm-2.144.0.tar.gz --output vsts-agent-linux-arm-2.144.0.tar.gz
+
+tar zxvf vsts-agent-linux-arm-2.144.0.tar.gz

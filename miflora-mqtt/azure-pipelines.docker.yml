@@ -22,3 +22,19 @@ steps:
     docker push "$(imageName):$(Build.BuildId)"
     docker push "$(imageName):latest"
   displayName: 'Docker Build & Push'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.stagingDirectory)'
+  inputs:
+    Contents: |
+     config/miflora-mqtt/**
+     miflora-mqtt/**
+    TargetFolder: '$(build.stagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: miflora-mqtt'
+  inputs:
+    PathtoPublish: '$(build.stagingDirectory)'
+    ArtifactName: miflora-mqtt
+
+

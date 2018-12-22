@@ -1,0 +1,28 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - zigbee2mqtt
+      - config/zigbee2mqtt
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.stagingDirectory)'
+  inputs:
+    Contents: |
+     config/zigbee2mqtt/**
+     zigbee2mqtt/**
+    TargetFolder: '$(build.stagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: zigbee2mqtt'
+  inputs:
+    PathtoPublish: '$(build.stagingDirectory)'
+    ArtifactName: zigbee2mqtt

@@ -15,7 +15,7 @@ services:
       - default
 
   homeassistant:
-    image: homeassistant/raspberrypi3-homeassistant:0.84.5
+    image: homeassistant/raspberrypi3-homeassistant:0.84.6
     container_name: home-assistant
     depends_on:
       mosquitto:

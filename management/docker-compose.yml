@@ -41,6 +41,7 @@ services:
   portainer:
     image: portainer/portainer
     container_name: portainer
+    restart: always
     volumes:
       - "${USERDIR}/data/portainer:/data"
       - "/var/run/docker.sock:/var/run/docker.sock"

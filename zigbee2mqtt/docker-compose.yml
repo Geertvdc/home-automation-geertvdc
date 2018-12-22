@@ -7,6 +7,6 @@ services:
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     volumes:
-      - /var/media/home-automation/zigbee2mqtt/data:/app/data
+      - /home/pi/zigbee2mqtt/data:/app/data
     restart: always
     network_mode: "host"

@@ -11,6 +11,7 @@ services:
       - "443:443"
     environment:
       ServerIP: "192.168.1.24"
+      WEBPASSWORD: "${PIHOLEWEBPASSWORD}"
     cap_add: 
       - NET_ADMIN
     volumes:

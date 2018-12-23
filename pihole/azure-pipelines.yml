@@ -1,0 +1,26 @@
+resources:
+- repo: self
+queue:
+  name: home-automation
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - pihole
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.stagingDirectory)'
+  inputs:
+    Contents: |
+     pihole/**
+    TargetFolder: '$(build.stagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: pihole'
+  inputs:
+    PathtoPublish: '$(build.stagingDirectory)'
+    ArtifactName: pihole

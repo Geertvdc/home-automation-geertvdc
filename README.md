@@ -12,7 +12,7 @@ todo
 
 
 
-### <img src="docs/img/logo-raspberrypi.png" alt="raspberry pi" width="50"> Raspberry Pi devices
+### Raspberry Pi devices <img src="docs/img/logo-raspberrypi.png" alt="raspberry pi" width="30"> 
 * **PowerPi** - Raspberry Pi near my central fuse box of my home reading power usage
 * **MediaPi** - Raspberry Pi located in my living room connected to my TV and AVR and also runs Kodi next to home automation tasks
 

@@ -5,6 +5,6 @@ services:
     image: geertvdc/miflora-mqtt
     container_name: miflora-mqtt
     volumes:
-      - ./config.livingroom.ini:/miflora-mqtt-daemon/config.ini
+      - /home/pi/config/miflora-mqtt/config.livingroom.ini:/miflora-mqtt-daemon/config.ini
     restart: always
     network_mode: "host"

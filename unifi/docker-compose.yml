@@ -1,0 +1,23 @@
+version: '3.6'
+
+services:
+  unifi:
+    image: ryansch/unifi-rpi:5.9.29
+    container_name: unifi
+    restart: always
+    network_mode: host
+    ports:
+      - "3478:3478/udp"
+      - "10001:10001/udp"
+      - "6789:6789/tcp"
+      - "8080:8080/tcp"
+      - "8880:8880/tcp"
+      - "8443:8443/tcp"
+      - "8843:8843/tcp"
+    volumes:
+      - /home/pi/unifi/config:/var/lib/unifi
+      - /home/pi/unifi/log:/usr/lib/unifi/logs
+      - /home/pi/unifi/log2:/var/log/unifi
+      - /home/pi/unifi/run:/usr/lib/unifi/run
+      - /home/pi/unifi/run2:/run/unifi
+      - /home/pi/unifi/work:/usr/lib/unifi/work

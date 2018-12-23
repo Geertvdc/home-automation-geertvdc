@@ -4,23 +4,46 @@ loglevel = "ERROR"
 [backends.pihole]
   [backends.pihole.servers.pihole]
     url = "http://192.168.1.24"
-
+    weight = 1
+[backends.unifi]
+  [backends.unifi.servers.unifi]
+    url = "https://192.168.1.24:8443"
+    weight = 1
 [frontends]
   [frontends.pihole]
-    entryPoints = ["https"]
+    entryPoints = ["http","https"]
     backend = "pihole"
-  [frontends.pihole.routes.pihole]
-    rule = "Host:pihole.vdcruijsen.net"
-  [frontends.pihole.auth]
-    [frontends.pihole.auth.basic]
+    [frontends.pihole.routes.pihole]
+      rule = "Host:pihole.vdcruijsen.net"
+    [frontends.pihole.auth]
+      [frontends.pihole.auth.basic]
       usersFile = "/shared/.htpasswd"
-  [frontends.pihole.headers]
-    SSLRedirect = true
-    STSSeconds = 315360000
-    browserXSSFilter = true
-    contentTypeNosniff = true
-    forceSTSHeader = true
-    SSLHost= "vdcruijsen.net"
-    STSIncludeSubdomains = true
-    STSPreload = true
-    frameDeny = true
+    [frontends.pihole.headers]
+      SSLRedirect = true
+      STSSeconds = 315360000
+      browserXSSFilter = true
+      contentTypeNosniff = true
+      forceSTSHeader = true
+      SSLHost= "vdcruijsen.net"
+      STSIncludeSubdomains = true
+      STSPreload = true
+frameDeny = true
+  [frontends.unifi]
+    entryPoints = ["http","https"]
+    backend = "unifi"
+    passHostHeader = true
+    [frontends.unifi.routes.unifi]
+      rule = "Host:unifi.vdcruijsen.net"
+    [frontends.unifi.auth]
+      [frontends.unifi.auth.basic]
+      usersFile = "/shared/.htpasswd"
+    [frontends.unifi.headers]
+      SSLRedirect = true
+      STSSeconds = 315360000
+      browserXSSFilter = true
+      contentTypeNosniff = true
+      forceSTSHeader = true
+      SSLHost= "vdcruijsen.net"
+      STSIncludeSubdomains = true
+      STSPreload = true
+      frameDeny = true

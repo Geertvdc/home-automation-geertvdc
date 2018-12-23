@@ -12,7 +12,7 @@ services:
     environment:
       ServerIP: "192.168.1.24"
       WEBPASSWORD: "${PIHOLEWEBPASSWORD}"
-      VIRTUAL_HOST: "pihole.vdcruijsen.net"
+      VIRTUAL_HOST: pihole.vdcruijsen.net
     cap_add: 
       - NET_ADMIN
     volumes:

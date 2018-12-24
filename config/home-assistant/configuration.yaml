@@ -98,7 +98,7 @@ notify:
 
 device_tracker:
   - platform: unifi
-    host: 192.168.1.13
+    host: 192.168.1.24
     username: !secret unifi_username
     password: !secret unifi_password
     verify_ssl: false

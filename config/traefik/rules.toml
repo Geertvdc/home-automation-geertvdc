@@ -29,7 +29,7 @@ loglevel = "ERROR"
       STSPreload = true
 frameDeny = true
   [frontends.unifi]
-    entryPoints = ["http","https"]
+    entryPoints = ["https"]
     backend = "unifi"
     passHostHeader = true
     [frontends.unifi.routes.unifi]

@@ -65,6 +65,10 @@ input_boolean:
     name: Dummy
     initial: off
     icon: mdi:bell
+  dummy2:
+    name: Dummy2
+    initial: off
+    icon: mdi:bell
 
 # MQTT broker
 mqtt:

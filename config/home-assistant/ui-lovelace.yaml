@@ -36,15 +36,25 @@ views:
               entity: sensor.plant_living_tv_2_moisture
               style: {color: '#ffffff', left: 60%, top: 56%}
 
-            #flower 3
-            - type: icon
-              icon: mdi:flower
-              tap_action: navigate
-              navigation_path: /lovelace/0
-              style: {color: '#00aa00', left: 30%, top: 70%}
-            - type: state-label
-              entity: sensor.plant_living_diningtable_moisture
-              style: {color: '#ffffff', left: 24%, top: 70%}
+            #flower 3 (currently unused)
+            # - type: icon
+            #   icon: mdi:flower
+            #   tap_action: navigate
+            #   navigation_path: /lovelace/0
+            #   style: {color: '#00aa00', left: 30%, top: 70%}
+            # - type: state-label
+            #   entity: sensor.plant_living_diningtable_moisture
+            #   style: {color: '#ffffff', left: 24%, top: 70%}
+
+            #Christmas tree
+            - type: state-icon
+              entity: switch.sonoff_s201
+              icon: mdi:pine-tree
+              tap_action: 
+                action: toggle
+                #service: switch.sonoff_s201.toggle
+              style: {color: '#00aa00', left: 20%, top: 53%}
+
             #temperature
             - type: state-label
               entity: sensor.plant_living_tv_1_temperature

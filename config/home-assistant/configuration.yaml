@@ -51,7 +51,9 @@ history:
       - sensor.smartmeter_current 
       - sensor.smartmeter_daily
       - group.smartmeter
-      
+  
+lovelace:
+  mode: yaml
 
 # View all events in a logbook
 logbook:

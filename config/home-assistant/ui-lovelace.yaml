@@ -55,6 +55,13 @@ views:
                 #service: switch.sonoff_s201.toggle
               style: {color: '#00aa00', left: 20%, top: 53%}
 
+            #Light Hallway
+            - type: state-icon
+              entity: light.0x000d6ffffe1bd2ef_light
+              tap_action: 
+                action: toggle
+              style: {color: '#00aa00', left: 55%, top: 36%}
+
             #temperature
             - type: state-label
               entity: sensor.plant_living_tv_1_temperature

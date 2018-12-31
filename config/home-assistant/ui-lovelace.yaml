@@ -52,8 +52,7 @@ views:
               icon: mdi:pine-tree
               tap_action: 
                 action: toggle
-                #service: switch.sonoff_s201.toggle
-              style: {color: '#00aa00', left: 20%, top: 53%}
+              style: {left: 20%, top: 53%}
 
             #Light Hallway
             - type: state-icon

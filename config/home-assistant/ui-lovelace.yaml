@@ -109,9 +109,10 @@ views:
   - title: plants
     icon: mdi:flower
     cards:
-      - id: 2
-        type: vertical-stack
-        title: tmp
+      - type: plant-status
+        entity: plant.plant_living_tv_1
+      - type: plant-status
+        entity: plant.plant_living_tv_2
   - title: devices
     icon: mdi:monitor-cellphone-star
     cards:

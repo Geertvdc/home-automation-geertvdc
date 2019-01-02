@@ -116,9 +116,16 @@ views:
   - title: devices
     icon: mdi:monitor-cellphone-star
     cards:
-      - id: 3
-        type: vertical-stack
-        title: tmp
+      - type: entities
+        entities:
+          - entity: media_player.tv
+            name: TV
+          - entity: media_player.denonavr
+            name: Versterker
+          - entity: media_player.kodi
+            name: Kodi
+          - entity: media_player.kodi
+            name: Chromecast
   - title: Settings
     icon: mdi:settings
     cards:

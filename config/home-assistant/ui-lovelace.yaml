@@ -103,9 +103,11 @@ views:
   - title: power
     icon: mdi:flash
     cards:
-      - id: 1
-        type: vertical-stack
-        title: tmp 
+      - type: entities
+        title: Schakelaars
+        entities:
+          - switch.sonoff_s201
+          - light.0x000d6ffffe1bd2ef_light
   - title: plants
     icon: mdi:flower
     cards:
@@ -129,6 +131,6 @@ views:
   - title: Settings
     icon: mdi:settings
     cards:
-      - id: 4
-        type: vertical-stack
-        title: tmp
+      - type: entities
+        title: Automations
+        entities:

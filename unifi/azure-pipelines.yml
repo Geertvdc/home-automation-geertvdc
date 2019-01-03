@@ -9,18 +9,18 @@ trigger:
       - master
   paths:
     include: 
-      - pihole
+      - unifi
 
 steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.stagingDirectory)'
   inputs:
     Contents: |
-     pihole/**
+     unifi/**
     TargetFolder: '$(build.stagingDirectory)'
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: pihole'
+  displayName: 'Publish Artifact: unifi'
   inputs:
     PathtoPublish: '$(build.stagingDirectory)'
-    ArtifactName: pihole
+    ArtifactName: unifi

@@ -5,6 +5,7 @@ media_player:
   - platform: kodi
     name: kodi
     host: mediapi.local
+    port: 9001
   - platform: denonavr
     host: avr.local
     name: denonavr

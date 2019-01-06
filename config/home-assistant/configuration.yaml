@@ -104,7 +104,7 @@ notify:
 
 device_tracker:
   - platform: unifi
-    host: 192.168.1.24
+    host: mediapi.local
     username: !secret unifi_username
     password: !secret unifi_password
     verify_ssl: false

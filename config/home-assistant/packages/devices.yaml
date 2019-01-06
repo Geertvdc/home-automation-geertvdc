@@ -1,17 +1,17 @@
 media_player:
   - platform: samsungtv
     name: tv
-    host: 192.168.1.27
+    host: tv.local
   - platform: kodi
     name: kodi
-    host: 192.168.1.24
+    host: mediapi.local
   - platform: denonavr
-    host: 192.168.1.28
+    host: avr.local
     name: denonavr
     timeout: 120
     show_all_sources: True
 
 cast:
   media_player:
-  - host: 192.168.1.11
+  - host: chromecast.local
     name: chromecast

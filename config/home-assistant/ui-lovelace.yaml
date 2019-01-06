@@ -47,12 +47,12 @@ views:
             #   style: {color: '#ffffff', left: 24%, top: 70%}
 
             #Christmas tree
-            - type: state-icon
-              entity: switch.sonoff_s201
-              icon: mdi:pine-tree
-              tap_action: 
-                action: toggle
-              style: {left: 20%, top: 53%}
+            # - type: state-icon
+            #   entity: switch.sonoff_s201
+            #   icon: mdi:pine-tree
+            #   tap_action: 
+            #     action: toggle
+            #   style: {left: 20%, top: 53%}
 
             #Light Hallway
             - type: state-icon

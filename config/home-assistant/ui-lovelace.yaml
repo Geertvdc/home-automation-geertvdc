@@ -135,7 +135,7 @@ views:
           - entity: media_player.kodi
             icon: mdi:kodi
             name: Kodi
-          - entity: media_player.chromecast
+          - entity: media_player.geert_tv
             icon: mdi:google-chrome
             name: Chromecast
   - title: Settings

@@ -14,5 +14,5 @@ media_player:
 
 cast:
   media_player:
-  - host: chromecast.local
-    name: chromecast
+  - host: 192.168.1.41
+    #name: chromecast

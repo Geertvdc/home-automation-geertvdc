@@ -133,8 +133,10 @@ views:
           - entity: media_player.denonavr
             name: Versterker
           - entity: media_player.kodi
+            icon: mdi:kodi
             name: Kodi
-          - entity: media_player.kodi
+          - entity: media_player.chromecast
+            icon: mdi:google-chrome
             name: Chromecast
   - title: Settings
     icon: mdi:settings

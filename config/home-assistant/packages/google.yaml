@@ -2,12 +2,10 @@ google_assistant:
   project_id: !secret google_project_id 
   api_key: !secret google_apikey
   exposed_domains:
-    - switch
-    - light
-    - group
   entity_config:
     light.0x000d6ffffe1bd2ef_light:
-      name: LAMP_HALL
+      name: Hall
     switch.sonoff_s201:
-      name: CHRISTMAS_TREE
-      room: LIVINGROOM
+      name: Christmas tree
+    light.0x00158d0002c6565f_light:
+      name: Garage

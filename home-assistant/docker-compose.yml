@@ -25,6 +25,8 @@ services:
     volumes:
       - "/home/pi/config/home-assistant:/config"
       - "/etc/localtime:/etc/localtime:ro"
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
     ports:
       - 8123:8123
     labels:

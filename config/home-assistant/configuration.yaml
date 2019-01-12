@@ -72,6 +72,10 @@ input_boolean:
     initial: off
     icon: mdi:bell
 
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_key
+
 # MQTT broker
 mqtt:
   broker: mosquitto

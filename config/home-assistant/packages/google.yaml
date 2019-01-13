@@ -9,16 +9,24 @@ google_assistant:
     - script
     - scene
   entity_config:
+    #lights
     light.0x000d6ffffe1bd2ef_light:
       name: Hall
       aliases:
-         - Hal
-         - Hal Lamp
-         - Lamp Hal
+        - Hal
+        - Hal Lamp
+        - Lamp Hal
     switch.sonoff_s201:
       name: Christmas tree
+      aliases:
+        - Lamp Garage
     light.0x00158d0002c6565f_light:
       name: Garage
       aliases:
-         - Lamp Garage
-         - Garage Lamp
+        - Lamp Garage
+        - Garage Lamp
+    #media devices
+    media_player.denonavr:
+    name: Receiver
+    aliases:
+      - Versterker

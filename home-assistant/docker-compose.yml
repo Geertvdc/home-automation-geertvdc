@@ -16,7 +16,7 @@ services:
       - default
 
   homeassistant:
-    image: homeassistant/raspberrypi3-homeassistant:0.85.0
+    image: homeassistant/raspberrypi3-homeassistant:0.85.1
     container_name: home-assistant
     restart: always
     depends_on:

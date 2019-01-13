@@ -25,6 +25,16 @@ google_assistant:
       aliases:
         - Lamp Garage
         - Garage Lamp
+    light.qubino_zmnhdd1_flush_dimmer_level:
+      name: Dining Table
+      aliases:
+        - Eet tafel
+     light.qubino_zmnhdd1_flush_dimmer_level_2:
+      name: Lamp Woonkamer
+      aliases:
+        - Woonkamer
+        - Zithoek
+        - Kamer
     #media devices
     media_player.denonavr:
       name: Receiver

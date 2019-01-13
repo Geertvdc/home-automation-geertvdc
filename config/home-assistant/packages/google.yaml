@@ -27,6 +27,6 @@ google_assistant:
         - Garage Lamp
     #media devices
     media_player.denonavr:
-    name: Receiver
-    aliases:
-      - Versterker
+      name: Receiver
+      aliases:
+        - Versterker

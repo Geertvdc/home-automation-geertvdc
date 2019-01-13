@@ -11,7 +11,14 @@ google_assistant:
   entity_config:
     light.0x000d6ffffe1bd2ef_light:
       name: Hall
+      aliases:
+         - Hal
+         - Hal Lamp
+         - Lamp Hal
     switch.sonoff_s201:
       name: Christmas tree
     light.0x00158d0002c6565f_light:
       name: Garage
+      aliases:
+         - Lamp Garage
+         - Garage Lamp

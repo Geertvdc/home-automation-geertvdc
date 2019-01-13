@@ -28,8 +28,8 @@ google_assistant:
     light.qubino_zmnhdd1_flush_dimmer_level:
       name: Dining Table
       aliases:
-        - Eet tafel
-     light.qubino_zmnhdd1_flush_dimmer_level_2:
+        - Eettafel
+    light.qubino_zmnhdd1_flush_dimmer_level_2:
       name: Lamp Woonkamer
       aliases:
         - Woonkamer

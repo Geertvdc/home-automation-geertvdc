@@ -19,3 +19,43 @@ automation:
       data:
         entity_id: input_boolean.dummy2
 
+- alias: turn on light in Garage when motion detected
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_motion
+    to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.garage
+
+- alias: turn off light in Garage when no motion detected
+  trigger:
+    platform: state
+    entity_id: binary_sensor.garage_motion
+    to: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.garage
+
+- alias: turn on light in Hall when motion detected
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_motion
+    to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall
+
+- alias: turn off light in Hall when no motion detected
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_motion
+    to: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.hall
+

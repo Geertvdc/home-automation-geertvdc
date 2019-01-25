@@ -133,9 +133,9 @@ views:
       - type: horizontal-stack
         cards:
           - type: light
-            entity: light.0x000d6ffffe1bd2ef_light
+            entity: light.garage
           - type: light
-            entity: light.0x00158d0002c6565f_light
+            entity: light.hall
   - title: plants
     icon: mdi:flower
     cards:

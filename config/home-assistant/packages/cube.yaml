@@ -1,0 +1,20 @@
+automation:
+
+- alias: turn on light when geert is home
+  trigger:
+    platform: state
+    entity_id: device_tracker.androidgeert
+    to: 'home'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.0x000d6ffffe1bd2ef_light
+        brightness: 195
+        rgb_color: [0,255,64]
+    - delay: '00:03:00'
+    - service: light.turn_off
+      data:
+        entity_id: light.0x000d6ffffe1bd2ef_light
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.dummy2

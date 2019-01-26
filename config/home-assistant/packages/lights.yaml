@@ -24,6 +24,9 @@ automation:
     platform: state
     entity_id: binary_sensor.garage_motion
     to: 'on'
+  condition:
+    - condition: state
+      value_template: '{{ states.sun.attributes.elevation < 3.5 }}'
   action:
     - service: light.turn_on
       data:
@@ -44,6 +47,9 @@ automation:
     platform: state
     entity_id: binary_sensor.hall_motion
     to: 'on'
+  condition:
+    - condition: state
+      value_template: '{{ states.sun.attributes.elevation < 3.5 }}'
   action:
     - service: light.turn_on
       data:
@@ -58,4 +64,3 @@ automation:
     - service: light.turn_off
       data:
         entity_id: light.hall
-

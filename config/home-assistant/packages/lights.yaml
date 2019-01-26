@@ -28,7 +28,7 @@ automation:
     to: 'on'
   condition:
     - condition: state
-      value_template: '{{ states.sun.attributes.elevation < 3.5 }}'
+      value_template: '{{ state_attr('sun.sun', 'elevation') < 3.5 }}'
   action:
     - service: light.turn_on
       data:
@@ -53,7 +53,7 @@ automation:
     to: 'on'
   condition:
     - condition: state
-      value_template: '{{ states.sun.attributes.elevation < 3.5 }}'
+      value_template: '{{ state_attr('sun.sun', 'elevation') < 3.5 }}'
   action:
     - service: light.turn_on
       data:

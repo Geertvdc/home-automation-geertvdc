@@ -70,14 +70,14 @@ views:
 
             #Light Hallway
             - type: state-icon
-              entity: light.0x000d6ffffe1bd2ef_light
+              entity: light.hall
               tap_action: 
                 action: toggle
               style: {color: '#00aa00', left: 55%, top: 36%}
 
             #Light Garage
             - type: state-icon
-              entity: light.0x00158d0002c6565f_light
+              entity: light.garage
               tap_action: 
                 action: toggle
               style: {color: '#00aa00', left: 73%, top: 36%}
@@ -124,18 +124,30 @@ views:
   - title: Lampen
     icon: mdi:lightbulb-outline
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: light
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: light
+      #       entity: light.diningtable
+      #     - type: light
+      #       entity: light.livingroom
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: light
+      #       entity: light.garage
+      #     - type: light
+      #       entity: light.hall
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:slider-entity-row
             entity: light.diningtable
-          - type: light
+          - type: custom:slider-entity-row
             entity: light.livingroom
-      - type: horizontal-stack
-        cards:
-          - type: light
+          - type: custom:slider-entity-row
             entity: light.garage
-          - type: light
+          - type: custom:slider-entity-row
             entity: light.hall
+
   - title: plants
     icon: mdi:flower
     cards:
@@ -163,4 +175,6 @@ views:
     cards:
       - type: entities
         title: Automations
+        show_header_toggle: false
         entities:
+          - group.all_automations

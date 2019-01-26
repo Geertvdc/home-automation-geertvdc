@@ -1,0 +1,7 @@
+sensor:
+  - platform: template
+    sensors:
+      solar_angle:
+        friendly_name: "Sun angle"
+        unit_of_measurement: 'degrees'
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"

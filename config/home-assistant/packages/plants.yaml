@@ -110,6 +110,7 @@ plant:
     min_moisture: 30
     max_moisture: 65
     min_battery: 20
+    min_conductivity: 0
     
   plant_living_tv_2:
     sensors:
@@ -121,6 +122,7 @@ plant:
     min_moisture: 30
     max_moisture: 65
     min_battery: 20
+    min_conductivity: 0
 
   # plant_living_diningtable:
   #   sensors:
@@ -135,6 +137,7 @@ plant:
     
 automation:
 - alias: Plant has problem
+  initial_state: true
   trigger:
     - platform: state
       entity_id: plant.plant_living_tv_1

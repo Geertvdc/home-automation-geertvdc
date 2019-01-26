@@ -1,4 +1,5 @@
 - alias: Send notification from dummy button
+  initial_state: true
   trigger:
     platform: state
     entity_id: input_boolean.dummy
@@ -12,6 +13,7 @@
         entity_id: input_boolean.dummy
 
 - alias: Send notification when Geert is home
+  initial_state: true
   trigger:
     platform: state
     entity_id: device_tracker.androidgeert
@@ -22,6 +24,7 @@
         message: '*Geert* is home'
 
 - alias: Send notification when Geert is away
+  initial_state: true
   trigger:
     platform: state
     entity_id: device_tracker.androidgeert
@@ -32,6 +35,7 @@
         message: '*Geert* is away'
 
 - alias: Send notification when Patty is home
+  initial_state: true
   trigger:
     platform: state
     entity_id: device_tracker.androidpatty
@@ -42,6 +46,7 @@
         message: '*Patty* is home'
 
 - alias: Send notification when Patty is away
+  initial_state: true
   trigger:
     platform: state
     entity_id: device_tracker.androidpatty
@@ -53,6 +58,7 @@
 
 # Sync Tasmota devices on startup
 - alias: "Sync tasmota state on HA start-up"
+  initial_state: true
   trigger:
     platform: homeassistant
     event: start

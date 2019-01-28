@@ -1,6 +1,8 @@
 resources:  
   - url: /local/plan-coordinates.js?v=1
     type: js
+  - url: /local/slider-entity-row.js?v=1
+    type: js
 
 title: Hellebaard 34
 views:

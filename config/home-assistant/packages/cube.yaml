@@ -1,5 +1,5 @@
 automation:
-  - alias: Cube Shake to turn on
+  - alias: Cube Shake to turn on or off Lamp
     trigger:
       platform: mqtt
       topic: 'zigbee2mqtt/0x00158d000275dd99'
@@ -9,3 +9,106 @@ automation:
     action:
       entity_id: light.hall
       service: light.toggle
+
+  - alias: Tap side with logo for white color
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/0x00158d000275dd99'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ "tap" == trigger.payload_json.action  }}'
+        - condition: template
+          value_template: '{{ 0 == trigger.payload_json.side }}'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hall
+          rgb_color: [255,226,145]
+
+  - alias: Tap side 1 for red color
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/0x00158d000275dd99'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ "tap" == trigger.payload_json.action  }}'
+        - condition: template
+          value_template: '{{ 1 == trigger.payload_json.side }}'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hall
+          rgb_color: [255,0,0]
+
+  - alias: Tap side 2 for green color
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/0x00158d000275dd99'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ "tap" == trigger.payload_json.action  }}'
+        - condition: template
+          value_template: '{{ 2 == trigger.payload_json.side }}'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hall
+          rgb_color: [0,255,0]
+
+  - alias: Tap side 3 for blue color
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/0x00158d000275dd99'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ "tap" == trigger.payload_json.action  }}'
+        - condition: template
+          value_template: '{{ 3 == trigger.payload_json.side }}'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hall
+          rgb_color: [0,0,255]
+
+  - alias: Tap side 4 for pink color
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/0x00158d000275dd99'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ "tap" == trigger.payload_json.action  }}'
+        - condition: template
+          value_template: '{{ 4 == trigger.payload_json.side }}'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hall
+          rgb_color: [253,11,255]
+
+  - alias: Tap side 5 for purple color
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/0x00158d000275dd99'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ "tap" == trigger.payload_json.action  }}'
+        - condition: template
+          value_template: '{{ 5 == trigger.payload_json.side }}'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hall
+          rgb_color: [270.824,100]
+

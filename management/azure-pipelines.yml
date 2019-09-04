@@ -12,6 +12,7 @@ trigger:
       - management
       - config/traefik
       - config/shared
+      - setup/environment
 
 steps:
 - task: CopyFiles@2
@@ -21,6 +22,7 @@ steps:
      config/traefik/**
      config/shared/**
      management/**
+     setup/environment
     TargetFolder: '$(build.stagingDirectory)'
 
 - task: PublishBuildArtifacts@1

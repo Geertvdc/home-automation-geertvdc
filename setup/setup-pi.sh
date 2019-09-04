@@ -51,9 +51,13 @@ sudo apt-get install git
 
 mkdir azure-devops-agent
 
-curl https://vstsagentpackage.azureedge.net/agent/2.156.0/vsts-agent-linux-arm-2.156.0.tar.gz --output vsts-agent-linux-arm-2.156.0.tar.gz
+curl https://vstsagentpackage.azureedge.net/agent/2.155.1/vsts-agent-linux-arm-2.155.1.tar.gz --output vsts-agent-linux-arm-2.155.1.tar.gz
 
-tar zxvf vsts-agent-linux-arm-2.156.0.tar.gz
+curl https://dot.net/v1/dotnet-install.sh --output dotnet-install.sh
+
+curl https://download.visualstudio.microsoft.com/download/pr/08b5ee2d-85d3-4e9a-8392-a53d9bfc45b6/8e2bc9a61074f8a82a455a0614226262/dotnet-sdk-2.1.801-linux-arm.tar.gz --output dotnet-sdk-2.1.801-linux-arm.tar.gz
+ 
+tar zxvf ../vsts-agent-linux-arm-2.155.1.tar.gz
 
 #on non portainer pi set the docker daemon to be available over tcp so it can be controlled by portainer.
 #create a file in /etc/systemd/system/docker.service.d/override.conf

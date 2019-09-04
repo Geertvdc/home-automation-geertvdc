@@ -22,6 +22,6 @@ My Raspberry pi devices run several containers doing all the home automation
 
 * **DSMR Reader** - "Dutch Smart Meter Requirements Reader" used for reading power usage in my home
 * **Home Assistant** - Core of my home automation. This is the software that controls all the automation scripts for lights/temperature/devices
-* **Management** -
-* **Miflora-mqtt** -
-* **Zigbee2mqtt** -
+* **Management** - Management is a set of containers to control other containers. Traefik is used as a reverse proxy and Portainer is an app used to control and view the other containers
+* **Miflora-mqtt** - Miflora is xiaomi's product with sensors you can add to a plant to monitor if it needs water or not. This works via bluetooth and this application reads the value from bluetooth and sends them to home assistant as mqtt messages
+* **Zigbee2mqtt** - This is a brilliant application that turns a simple 4$ usb stick into a zigbee controller which communicates over mqtt to home assistant. More info on the application [here](https://koenkk.github.io/zigbee2mqtt/).

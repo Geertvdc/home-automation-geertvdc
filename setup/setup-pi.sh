@@ -32,13 +32,17 @@ sudo apt install -y --no-install-recommends \
 sudo systemctl enable docker
 sudo systemctl start docker
 
+#give permissions to use docker
+sudo usermod -a -G docker $USER
+sudo gpasswd -a $USER docker
+newgrp docker
+
 docker network create traefik_proxy
 
 #docker-compose 
-
 # Install required packages
 sudo apt update
-sudo apt install -y python python-pip libffi-dev python-backports.ssl-match-hostname
+sudo apt install -y python python-pip libffi-dev python-backports.ssl-match-hostname libssl-dev
 
 # Install Docker Compose from pip
 # This might take a while
@@ -46,9 +50,9 @@ sudo pip install docker-compose
 
 #install git 
 sudo apt-get update
-
 sudo apt-get install git
 
+#install Azure DevOps agent
 mkdir azure-devops-agent
 
 curl https://vstsagentpackage.azureedge.net/agent/2.155.1/vsts-agent-linux-arm-2.155.1.tar.gz --output vsts-agent-linux-arm-2.155.1.tar.gz

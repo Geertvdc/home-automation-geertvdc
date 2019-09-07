@@ -72,14 +72,14 @@ views:
 
             #Light Hallway
             - type: state-icon
-              entity: light.hall
+              entity: light.0x000d6ffffe1bd2ef_light #lamp_hall
               tap_action: 
                 action: toggle
               style: {color: '#00aa00', left: 55%, top: 36%}
 
             #Light Garage
             - type: state-icon
-              entity: light.garage
+              entity: light.0x00158d0002c6565f_light #lamp_garage
               tap_action: 
                 action: toggle
               style: {color: '#00aa00', left: 73%, top: 36%}

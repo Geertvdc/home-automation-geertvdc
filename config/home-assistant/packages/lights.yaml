@@ -9,13 +9,13 @@ automation:
   action:
     - service: light.turn_on
       data:
-        entity_id: light.0x000d6ffffe1bd2ef_light
+        entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
         brightness: 195
         rgb_color: [0,255,64]
     - delay: '00:03:00'
     - service: light.turn_off
       data:
-        entity_id: light.0x000d6ffffe1bd2ef_light
+        entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.dummy2
@@ -24,7 +24,7 @@ automation:
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.garage_motion
+    entity_id: binary_sensor.0x00158d0002ea1cdc_occupancy #motionsensor_garage
     to: 'on'
   condition:
     condition: template
@@ -32,24 +32,24 @@ automation:
   action:
     - service: light.turn_on
       data:
-        entity_id: light.garage
+        entity_id: light.0x00158d0002c6565f_light #lamp_garage
 
 - alias: turn off light in Garage when no motion detected
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.garage_motion
+    entity_id: binary_sensor.0x00158d0002ea1cdc_occupancy #motionsensor_garage
     to: 'off'
   action:
     - service: light.turn_off
       data:
-        entity_id: light.garage
+        entity_id: light.0x00158d0002c6565f_light #lamp_garage
 
 - alias: turn on light in Hall when motion detected
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.hall_motion
+    entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
     to: 'on'
   condition:
     condition: template
@@ -57,15 +57,15 @@ automation:
   action:
     - service: light.turn_on
       data:
-        entity_id: light.hall
+        entity_id: light.0x000d6ffffe1bd2ef_light #lamp_hall
 
 - alias: turn off light in Hall when no motion detected
   initial_state: true
   trigger:
     platform: state
-    entity_id: binary_sensor.hall_motion
+    entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
     to: 'off'
   action:
     - service: light.turn_off
       data:
-        entity_id: light.hall
+        entity_id: light.0x000d6ffffe1bd2ef_light #lamp_hall

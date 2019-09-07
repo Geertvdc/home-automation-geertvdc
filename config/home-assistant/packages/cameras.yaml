@@ -1,9 +1,9 @@
-ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
+# ffmpeg:
+#   ffmpeg_bin: /usr/bin/ffmpeg
 
-camera:
-  - platform: onvif
-    host: 192.168.1.10
-    username: geert
-    password: geert
-    port: 8080
+# camera:
+#   - platform: onvif
+#     host: 192.168.1.10
+#     username: geert
+#     password: geert
+#     port: 8080

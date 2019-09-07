@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   unifi:
-    image: ryansch/unifi-rpi:5.9.29
+    image: ryansch/unifi-rpi:5.11.39
     container_name: unifi
     restart: always
     network_mode: host

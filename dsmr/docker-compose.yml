@@ -16,7 +16,7 @@ services:
       - default
 
   dsmr:
-    image: geertvdc/dsmr-reader-docker-arm:1.26.1-alpine
+    image: xirixiz/dsmr-reader-docker:arm32v6-v2.3.0
     container_name: dsmr
     depends_on:
       - dsmrdb

@@ -21,6 +21,8 @@ frontend:
 # Enables configuration UI
 config:
 
+system_health:
+
 discovery:
   ignore:
     - denonavr
@@ -108,7 +110,7 @@ notify:
 
 device_tracker:
   - platform: unifi
-    host: mediapi.local
+    host: 192.168.1.24
     username: !secret unifi_username
     password: !secret unifi_password
     verify_ssl: false

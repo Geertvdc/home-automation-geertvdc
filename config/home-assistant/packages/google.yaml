@@ -40,3 +40,11 @@ google_assistant:
       name: Receiver
       aliases:
         - Versterker
+    #vacuum
+    vacuum.rockrobo:
+      name: vacuum
+      aliases:
+        - Robbie
+        - Stofzuiger
+        - Robbie de Robot
+        - Robot

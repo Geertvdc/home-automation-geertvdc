@@ -48,7 +48,7 @@ views:
 
             #Light diningtable
             - type: state-icon
-              entity: light.diningtable
+              entity: light.qubino_zmnhdd1_flush_dimmer_level
               tap_action: 
                 action: toggle
               style: {left: 30%, top: 66%}

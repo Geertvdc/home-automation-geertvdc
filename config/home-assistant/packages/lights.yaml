@@ -4,7 +4,7 @@ automation:
   initial_state: true
   trigger:
     platform: state
-    entity_id: device_tracker.androidgeert
+    entity_id: device_tracker.op6g
     to: 'home'
   action:
     - service: light.turn_on

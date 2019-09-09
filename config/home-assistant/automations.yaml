@@ -16,7 +16,7 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: device_tracker.androidgeert
+    entity_id: device_tracker.op6g
     to: 'home'
   action:
     - service: notify.telegram_dev
@@ -27,7 +27,7 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: device_tracker.androidgeert
+    entity_id: device_tracker.op6g
     to: 'not_home'
   action:
     - service: notify.telegram_dev
@@ -38,7 +38,7 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: device_tracker.androidpatty
+    entity_id: device_tracker.android_6d70b33fee1d28b8
     to: 'home'
   action:
     - service: notify.telegram_dev
@@ -49,7 +49,7 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: device_tracker.androidpatty
+    entity_id: device_tracker.android_6d70b33fee1d28b8
     to: 'not_home'
   action:
     - service: notify.telegram_dev

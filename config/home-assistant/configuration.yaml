@@ -48,6 +48,7 @@ history:
       - sensor.smartmeter_daily_usage
       - sensor.smartmeter_daily_return
       - sensor.smartmeter_daily_total
+      - sensor.smartmeter_daily_return_total
       - sensor.smartmeter_current_usage_w
       - sensor.smartmeter_current_return_w
       - sensor.smartmeter_current 
@@ -57,8 +58,24 @@ history:
 lovelace:
   mode: yaml
 
-# View all events in a logbook
 logbook:
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sensor.smartmeter_current_usage
+      - sensor.smartmeter_current_return
+      - sensor.smartmeter_daily_usage
+      - sensor.smartmeter_daily_return
+      - sensor.smartmeter_daily_total
+      - sensor.smartmeter_daily_return_total
+      - sensor.smartmeter_current_usage_w
+      - sensor.smartmeter_current_return_w
+      - sensor.smartmeter_current 
+      - sensor.smartmeter_daily
+      - group.smartmeter
 
 # Track the sun
 sun:

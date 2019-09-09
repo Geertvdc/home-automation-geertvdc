@@ -106,7 +106,7 @@ views:
             - type: state-icon
               entity: vacuum.rockrobo
               icon: mdi:robot-vacuum
-              style: {color: '#656a6b', left: 20%, top: 53%}
+              style: {color: '#656a6b', left: 18%, top: 52%}
       - id: 0.2
         type: vertical-stack 
         cards: 

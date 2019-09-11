@@ -1,13 +1,12 @@
 google_assistant:
   project_id: !secret google_project_id 
   api_key: !secret google_apikey
+  expose_by_default: false
   exposed_domains:
     - switch
     - light
-    - group
     - media_player
-    - script
-    - scene
+    - vacuum
   entity_config:
     #lights
     light.0x000d6ffffe1bd2ef_light:
@@ -29,7 +28,7 @@ google_assistant:
       name: Dining Table
       aliases:
         - Eettafel
-    light.qubino_zmnhdd1_flush_dimmer_level_2:
+    light.fibaro_system_fgd212_dimmer_2_level_2:
       name: Lamp Woonkamer
       aliases:
         - Woonkamer
@@ -42,7 +41,7 @@ google_assistant:
         - Versterker
     #vacuum
     vacuum.rockrobo:
-      name: vacuum
+      name: Robbie
       aliases:
         - Robbie
         - Stofzuiger

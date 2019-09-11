@@ -3,6 +3,8 @@ resources:
     type: js
   - url: /local/slider-entity-row.js?v=1
     type: js
+  - url: /local/valetudo-map-card.js
+    type: js
 
 title: Hellebaard 34
 views:
@@ -155,6 +157,17 @@ views:
           - entity: media_player.geert_tv
             icon: mdi:google-chrome
             name: Chromecast
+  - title: Vacuum
+    icon: mdi:robot-vacuum
+    cards:
+      - type: 'custom:valetudo-map-card'
+        entity: sensor.xiaomi_map
+        rotate: 0
+        crop:
+          top: 0
+          bottom: 0
+          left: 0
+          right: 0
   - title: Settings
     icon: mdi:settings
     cards:

@@ -77,6 +77,11 @@ logbook:
       - sensor.smartmeter_daily
       - group.smartmeter
 
+recorder:
+  exclude:
+    entities:
+      - sensor.xiaomi_map
+
 # Track the sun
 sun:
 

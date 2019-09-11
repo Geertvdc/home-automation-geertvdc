@@ -2,3 +2,18 @@ vacuum:
   - platform: xiaomi_miio
     host: 192.168.1.16
     token: !secret xiaomi_token
+
+sensor:
+  - platform: rest
+    resource: http://192.168.1.16/api/map/latest
+    name: xiaomi_map
+    json_attributes:
+      - image
+      - path
+      - charger
+      - robot
+    value_template: 'OK'
+    scan_interval: 5
+    #authentication: none
+    #username: !secret xiaomi_map_username
+    #password: !secret xiaomi_map_password

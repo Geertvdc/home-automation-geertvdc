@@ -55,7 +55,7 @@ views:
 
             #Light Livingroom
             - type: state-icon
-              entity: light.livingroom
+              entity: light.fibaro_system_fgd212_dimmer_2_level_2
               tap_action: 
                 action: toggle
               style: {left: 55%, top: 66%}

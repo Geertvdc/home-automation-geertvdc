@@ -1,7 +1,7 @@
 google_assistant:
   project_id: !secret google_project_id 
   api_key: !secret google_apikey
-  expose_by_default: false
+  expose_by_default: true
   exposed_domains:
     - switch
     - light

@@ -176,3 +176,11 @@ views:
         show_header_toggle: false
         entities:
           - group.all_automations
+      - type: history-graph
+        title: 'Movement history'
+        hours_to_show: 8
+        entities:
+          - entity: binary_sensor.0x00158d0002ea1ba5_occupancy
+            name: hall
+          - entity: binary_sensor.0x00158d0002ea1cdc_occupancy
+            name: garage

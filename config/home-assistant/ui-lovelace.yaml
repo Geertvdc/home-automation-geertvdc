@@ -19,6 +19,54 @@ views:
             image: /local/images/ground-floor.light.png?v=1
             #title: Begane grond
             elements:
+
+            - type: conditional
+              conditions:
+              - entity: input_boolean.showvacuumtrail
+                state: 'on'
+              elements:
+              - type: 'custom:valetudo-map-card'
+                style: {left: 50%, top: 50%, height: 100%}
+                entity: sensor.xiaomi_map
+                rotate: 180
+                obstacle_weak_color: '#cccccc'
+                obstacle_strong_color: '#cccccc'
+                path_color: '#7f7f7f'
+                map_scale: 1.95
+                show_dock: false
+                crop:
+                  top: 22
+                  bottom: -57
+                  left: 58
+                  right: 0
+              - type: image
+                image: /local/images/ground-floor-transparent.png?v=1
+                style: {left: 50%, top: 50%, width: 100%, height: 100%}
+                tap_action: 
+                  action: call-service
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.showvacuumtrail
+                    
+            - type: conditional
+              conditions:
+              - entity: input_boolean.showvacuumtrail
+                state: 'off'
+              elements:
+              - type: icon
+                icon: mdi:robot-vacuum
+                tap_action: 
+                  action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.showvacuumtrail
+                style: {color: '#656a6b', left: 18%, top: 52%}
+
+              #vacuum
+              # - type: state-icon
+              #   entity: vacuum.rockrobo
+              #   icon: mdi:robot-vacuum
+              #   style: {color: '#656a6b', left: 18%, top: 52%}
             
             #flower 1
             - type: icon

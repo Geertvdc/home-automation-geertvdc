@@ -1,16 +1,16 @@
-- alias: Send notification from dummy button
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id: input_boolean.dummy
-    to: 'on'
-  action:
-    - service: notify.telegram_dev
-      data:
-        message: "example that _sends_ a *formatted* message with a custom inline keyboard."
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.dummy
+# - alias: Send notification from dummy button
+#   initial_state: true
+#   trigger:
+#     platform: state
+#     entity_id: input_boolean.dummy
+#     to: 'on'
+#   action:
+#     - service: notify.telegram_dev
+#       data:
+#         message: "example that _sends_ a *formatted* message with a custom inline keyboard."
+#     - service: input_boolean.turn_off
+#       data:
+#         entity_id: input_boolean.dummy
 
 - alias: Send notification when Geert is home
   initial_state: true

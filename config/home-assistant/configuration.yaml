@@ -85,16 +85,12 @@ recorder:
 # Track the sun
 sun:
 
-# Dummy switch
+#internal switches
 input_boolean:
-  dummy:
-    name: Dummy
+  showvacuumtrail:
+    name: show vacuum trail
     initial: off
-    icon: mdi:bell
-  dummy2:
-    name: Dummy2
-    initial: off
-    icon: mdi:bell
+    icon: mdi:robot-vacuum
 
 zwave:
   usb_path: /dev/ttyACM0

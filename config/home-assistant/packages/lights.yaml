@@ -1,24 +1,24 @@
 automation:
 
-- alias: turn on light when geert is home
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id: device_tracker.op6g
-    to: 'home'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
-        brightness: 195
-        rgb_color: [0,255,64]
-    - delay: '00:03:00'
-    - service: light.turn_off
-      data:
-        entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.dummy2
+# - alias: turn on light when geert is home
+#   initial_state: true
+#   trigger:
+#     platform: state
+#     entity_id: device_tracker.op6g
+#     to: 'home'
+#   action:
+#     - service: light.turn_on
+#       data:
+#         entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
+#         brightness: 195
+#         rgb_color: [0,255,64]
+#     - delay: '00:03:00'
+#     - service: light.turn_off
+#       data:
+#         entity_id: binary_sensor.0x00158d0002ea1ba5_occupancy #motionsensor_hall
+#     - service: input_boolean.turn_off
+#       data:
+#         entity_id: input_boolean.dummy2
 
 - alias: turn on light in Garage when motion detected
   initial_state: true
